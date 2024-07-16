@@ -212,7 +212,7 @@ class _TalkerViewState extends State<TalkerView> {
 
   Future<void> _shareLogsInFile() async {
     await _controller.downloadLogsFile(
-      widget.talker.history.text,
+      widget.talker.history.text(timeFormat: widget.talker.settings.timeFormat),
     );
   }
 
@@ -226,7 +226,7 @@ class _TalkerViewState extends State<TalkerView> {
   }
 
   void _copyAllLogs(BuildContext context) {
-    Clipboard.setData(ClipboardData(text: widget.talker.history.text));
+    Clipboard.setData(ClipboardData(text: widget.talker.history.text(timeFormat: widget.talker.settings.timeFormat)));
     _showSnackBar(context, 'All logs copied in buffer');
   }
 }
