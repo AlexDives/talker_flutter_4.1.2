@@ -145,9 +145,7 @@ class CustomLog extends TalkerLog {
   AnsiPen get pen => AnsiPen()..xterm(49);
 
   @override
-  String generateTextMessage({
-    TimeFormat timeFormat = TimeFormat.timeAndSeconds,
-  }) {
+  String generateTextMessage() {
     return '| Custom leading | ' + (message ?? '');
   }
 }
@@ -171,7 +169,7 @@ class BarButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onTap,
       style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.all(backgroundColor),
+        backgroundColor: MaterialStateProperty.all(backgroundColor),
       ),
       child: Text(
         title,
